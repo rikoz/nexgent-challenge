@@ -5,13 +5,12 @@ import { fetchStudents, Student } from "../services/students";
 
 type Props = {};
 
-const Main: React.FC<Props> = ({ }) => {
+const Main: React.FC<Props> = () => {
   const [search, setSearch] = useState<string>('')
   const [students, setStudents] = useState<Student[]>([])
 
-  const onChangeHandler = (event: any) => {
-    const value = event.target.value
-    setSearch(value)
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value)
   };
 
   const filteredStudents: Student[] = useMemo(() =>

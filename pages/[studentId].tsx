@@ -13,11 +13,11 @@ interface IParams extends ParsedUrlQuery {
   studentId: string
 }
 
-const Main: React.FC<Props> = ({ }) => {
+const Student: React.FC<Props> = ({ }) => {
   const router = useRouter()
   const { studentId } = router.query as IParams
 
-  const [student, setStudent] = useState<Student>()
+  const [student, setStudent] = useState<Student | null>(null)
 
   useEffect(() => {
     fetchStudent(studentId).then(res => setStudent(res))
@@ -41,4 +41,4 @@ const Main: React.FC<Props> = ({ }) => {
   );
 };
 
-export default Main;
+export default Student;
